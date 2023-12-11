@@ -1,13 +1,12 @@
 {
   "name": "prime-solo-project",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
-  "proxy": "http://localhost:5000",
   "engines": {
     "node": "18.x"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^1.6.2",
     "bcryptjs": "^2.4.3",
     "cookie-session": "^2.0.0",
     "dotenv": "^16.0.3",
@@ -15,7 +14,6 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg": "^8.5.1",
-    "prop-types": "^15.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^7.2.6",
@@ -29,12 +27,13 @@
     "client": "vite",
     "server": "nodemon --watch server server/server.js",
     "build": "vite build",
-    "test": "react-scripts test --env=jsdom"
+    "test": "echo 'tests need setup' "
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
     "nodemon": "^2.0.4",
-    "vite": "^5.0.7"
+    "vite": "^5.0.7",
+    "vitest": "^1.0.4"
   },
   "browserslist": {
     "production": [
@@ -48,6 +47,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "heroku-run-build-script": true
+  }
 }
