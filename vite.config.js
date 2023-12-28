@@ -8,7 +8,7 @@
             },
             server: {
                 proxy: {
-                    '/*':'http://localhost:5001',
+                    "/api":'http://localhost:5001',
                 }
             },
             plugins: [react()],
