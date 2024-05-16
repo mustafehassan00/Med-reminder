@@ -41,9 +41,11 @@ module.exports = expressSession({
     secret: serverSessionSecret() || 'secret', // please set this in your .env file
     name: 'user', // this is the name of the req.variable. 'user' is convention, but not required
     saveUninitialized: false,
-    signed: true,
     resave: false,
-    maxAge: 1000 * 60 * 60 * 24 * 30, // 30 days by default
     // This isn't currently being used but should be left in for future proofing
-    cookie: { maxAge: 1000 * 60 * 60 * 24 * 30 },
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7, // cookie expires after 7 days 
+      httpOnly: true, // prevents client-side JS from accessing cookie 
+      secure: false // can only be set to true if the app uses https
+    },
 });
