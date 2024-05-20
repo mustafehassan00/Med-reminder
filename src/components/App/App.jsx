@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import UserInformation from '../UserInformation/UserInformation';
 
 import './App.css';
 
@@ -28,7 +29,12 @@ function App() {
   const user = useSelector(store => store.user);
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_USER' });
+    dispatch({ 
+      type: 'FETCH_USER' 
+    });
+    dispatch({ 
+      type: 'FETCH_USERDESC' 
+    });
   }, [dispatch]);
 
   return (
@@ -66,6 +72,14 @@ function App() {
             path="/info"
           >
             <InfoPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/UserInformation"
+          >
+            <UserInformation />
           </ProtectedRoute>
 
           <Route

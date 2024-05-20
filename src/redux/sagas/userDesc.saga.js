@@ -5,7 +5,7 @@ import {put, takeLatest} from 'redux-saga/effects';
 function* fetchUserDesc() {
     try{
         // Get User Description
-        const userDescResponse= yield axios.get('/api/userdesc');
+        const userDescResponse= yield axios.get('/api/userDesc');
 
         yield put ({
             type:'SET_USERDESC',
