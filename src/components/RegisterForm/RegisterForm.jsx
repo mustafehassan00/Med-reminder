@@ -28,28 +28,110 @@ function RegisterForm() {
         </h3>
       )}
       <div>
-        <label htmlFor="username">
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
-            required
-            onChange={(event) => setUsername(event.target.value)}
-          />
-        </label>
+        <p>
+          <label htmlFor="username">
+            Username:
+            <input
+              type="text"
+              name="username"
+              value={username}
+              required
+              onChange={(event) => setUsername(event.target.value)}
+            />
+          </label>
+        </p>
       </div>
+
       <div>
-        <label htmlFor="password">
-          Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
-            required
-            onChange={(event) => setPassword(event.target.value)}
-          />
-        </label>
+        <p>
+          <label htmlFor="password">
+            Password:
+            <input
+              type="password"
+              name="password"
+              value={password}
+              required
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </label>
+        </p>
+        <p>
+          <label>
+            Name:
+            <input
+              type="text"
+              value={password}
+              required
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </label>
+        </p>
+        <p>
+          <label>
+            Bio:
+            <input
+              type="text"
+              value={password}
+              required
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </label>
+        </p>
+        <p>
+          <label>
+            Height:
+            <input
+              type="text"
+              value={password}
+              required
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </label>
+        </p>
+        <p>
+          <label>
+            Weight:
+            <input
+              type="text"
+              value={password}
+              required
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </label>
+        </p>
+        <p>
+          <label>
+            Address:
+            <input
+              type="text"
+              value={password}
+              required
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </label>
+        </p>
+        <p>
+          <label>
+            Age:
+            <input
+              type="text"
+              value={password}
+              required
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </label>
+        </p>
+        <p>
+          <label>
+            User Conditon:
+            <input
+              type="text"
+              value={password}
+              required
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </label>
+        </p>
       </div>
       <div>
         <input className="btn" type="submit" name="submit" value="Register" />
