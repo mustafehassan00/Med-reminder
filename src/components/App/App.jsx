@@ -30,10 +30,10 @@ function App() {
 
   useEffect(() => {
     dispatch({ 
-      type: 'FETCH_USER' 
+      type: 'FETCH_USERDESC' 
     });
     dispatch({ 
-      type: 'FETCH_USERDESC' 
+      type: 'FETCH_USER' 
     });
   }, [dispatch]);
 

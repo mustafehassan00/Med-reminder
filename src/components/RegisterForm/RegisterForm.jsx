@@ -22,18 +22,13 @@ function RegisterForm() {
       payload: {
         username: username,
         password: password,
-      },
-    });
-    dispatch({
-      type: 'FETCH_USERDESCINPUT',
-      payload: {
-       name: name,
-       bio: bio,
-       height: height,
-       weight: weight,
-       address: address,
-       age: age,
-       userCondition: userCondition
+        Name: name,
+        Bio: bio,
+        Height: height,
+        Weight: weight,
+        Address: address,
+        Age: age,
+        user_condition: userCondition
       },
     });
   }; // end registerUser
@@ -75,10 +70,11 @@ function RegisterForm() {
           </label>
         </p>
         <p>
-          <label>
+          <label htmlFor="name">
             Name:
             <input
               type="text"
+              name="name"
               value={name}
               required
               onChange={(event) => setName(event.target.value)}
@@ -86,10 +82,11 @@ function RegisterForm() {
           </label>
         </p>
         <p>
-          <label>
+          <label htmlFor="bio">
             Bio:
             <input
               type="text"
+              name="bio"
               value={bio}
               required
               onChange={(event) => setBio(event.target.value)}
@@ -97,10 +94,11 @@ function RegisterForm() {
           </label>
         </p>
         <p>
-          <label>
+          <label htmlFor="height">
             Height:
             <input
               type="text"
+              name="height"
               value={height}
               required
               onChange={(event) => setHeight(event.target.value)}
@@ -108,10 +106,11 @@ function RegisterForm() {
           </label>
         </p>
         <p>
-          <label>
+          <label htmlFor="weight">
             Weight:
             <input
               type="text"
+              name="weight"
               value={weight}
               required
               onChange={(event) => setWeight(event.target.value)}
@@ -119,10 +118,11 @@ function RegisterForm() {
           </label>
         </p>
         <p>
-          <label>
+          <label htmlFor="address">
             Address:
             <input
               type="text"
+              name="address"
               value={address}
               required
               onChange={(event) => setAddress(event.target.value)}
@@ -130,10 +130,11 @@ function RegisterForm() {
           </label>
         </p>
         <p>
-          <label>
+          <label htmlFor="age">
             Age:
             <input
               type="text"
+              name="age"
               value={age}
               required
               onChange={(event) => setAge(event.target.value)}
@@ -141,10 +142,11 @@ function RegisterForm() {
           </label>
         </p>
         <p>
-          <label>
+          <label htmlFor="userCondition">
             User Conditon:
             <input
               type="text"
+              name="userCondition"
               value={userCondition}
               required
               onChange={(event) => setUserCondition(event.target.value)}

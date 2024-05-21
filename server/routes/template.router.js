@@ -6,13 +6,17 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-  // GET route code here
+ let user = req.user;
+ console.log(user);
+
   console.log('GET IS WORKING for user_description')
+  
   const sqlText = `SELECT * FROM user_description
                 INNER JOIN "user" ON 
-                user_description."user" = "user".id;`
+                user_description."user_id" = "user".id
+                WHERE "user".id = $1;`
   pool
-    .query(sqlText)
+    .query(sqlText, [user.id])
     .then((result) => {
       res.send(result.rows)
     })
