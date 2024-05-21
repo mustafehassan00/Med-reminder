@@ -8,7 +8,9 @@ const router = express.Router();
 router.get('/', (req, res) => {
   // GET route code here
   console.log('GET IS WORKING')
-  let sqlText = `SELECT * FROM user_description;`
+  let sqlText = `SELECT * FROM user_description
+                INNER JOIN "user" ON 
+                user_description."user" = "user".id;`
   pool
     .query(sqlText)
     .then((result) => {

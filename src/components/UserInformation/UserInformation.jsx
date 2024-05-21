@@ -14,7 +14,7 @@ function UserInformation(){
             <p>Weight: {userDesc.Weight}</p>
             <p>Address: {userDesc.Address}</p>
             <p>Age: {userDesc.Age}</p>
-            <p>User Condtion: {userDesc.user_Condition}</p>
+            <p>User Condtion: {userDesc.user_condition}</p>
         </div>
     );
 }
