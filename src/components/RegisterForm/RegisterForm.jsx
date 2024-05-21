@@ -4,6 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 function RegisterForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('')
+  const [bio, setBio] = useState('')
+  const [height, setHeight] = useState('')
+  const [weight, setWeight] = useState('')
+  const [address, setAddress] = useState('')
+  const [age, setAge] = useState('')
+  const [userCondition, setUserCondition] = useState('')
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
@@ -15,6 +22,18 @@ function RegisterForm() {
       payload: {
         username: username,
         password: password,
+      },
+    });
+    dispatch({
+      type: 'FETCH_USERDESCINPUT',
+      payload: {
+       name: name,
+       bio: bio,
+       height: height,
+       weight: weight,
+       address: address,
+       age: age,
+       userCondition: userCondition
       },
     });
   }; // end registerUser
@@ -60,9 +79,9 @@ function RegisterForm() {
             Name:
             <input
               type="text"
-              value={password}
+              value={name}
               required
-              onChange={(event) => setPassword(event.target.value)}
+              onChange={(event) => setName(event.target.value)}
             />
           </label>
         </p>
@@ -71,9 +90,9 @@ function RegisterForm() {
             Bio:
             <input
               type="text"
-              value={password}
+              value={bio}
               required
-              onChange={(event) => setPassword(event.target.value)}
+              onChange={(event) => setBio(event.target.value)}
             />
           </label>
         </p>
@@ -82,9 +101,9 @@ function RegisterForm() {
             Height:
             <input
               type="text"
-              value={password}
+              value={height}
               required
-              onChange={(event) => setPassword(event.target.value)}
+              onChange={(event) => setHeight(event.target.value)}
             />
           </label>
         </p>
@@ -93,9 +112,9 @@ function RegisterForm() {
             Weight:
             <input
               type="text"
-              value={password}
+              value={weight}
               required
-              onChange={(event) => setPassword(event.target.value)}
+              onChange={(event) => setWeight(event.target.value)}
             />
           </label>
         </p>
@@ -104,9 +123,9 @@ function RegisterForm() {
             Address:
             <input
               type="text"
-              value={password}
+              value={address}
               required
-              onChange={(event) => setPassword(event.target.value)}
+              onChange={(event) => setAddress(event.target.value)}
             />
           </label>
         </p>
@@ -115,9 +134,9 @@ function RegisterForm() {
             Age:
             <input
               type="text"
-              value={password}
+              value={age}
               required
-              onChange={(event) => setPassword(event.target.value)}
+              onChange={(event) => setAge(event.target.value)}
             />
           </label>
         </p>
@@ -126,9 +145,9 @@ function RegisterForm() {
             User Conditon:
             <input
               type="text"
-              value={password}
+              value={userCondition}
               required
-              onChange={(event) => setPassword(event.target.value)}
+              onChange={(event) => setUserCondition(event.target.value)}
             />
           </label>
         </p>

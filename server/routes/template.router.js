@@ -31,19 +31,21 @@ router.post('/', (req, res) => {
   const Name = req.body.Name
   const Bio = req.body.Bio
   const Height = req.body.Height
+  const Weight = req.body.Weight
   const Address = req.body.Address
   const Age = req.body.Age
   const userCondition = req.body.user_condition
 
   const sqlText = `INSERT INTO user_description 
-                  ("Name", "Bio", "Height", "Weight", "Address", "Age", "user", user_condition) 
+                  ("Name", "Bio", "Height", "Weight", "Address", "Age", user_condition) 
                 VALUES
-                  ($1, $2, $3, $4, $5, $6, $7, $8)`
+                  ($1, $2, $3, $4, $5, $6, $7)`
 
   const sqlValue = [
     Name,
     Bio,
     Height,
+    Weight,
     Address,
     Age,
     userCondition

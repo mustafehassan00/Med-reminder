@@ -13,8 +13,8 @@ import userDescInput from './userDescInput';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
-  userDesc,
-  userDescInput // contains our Users Description
+  userDesc, // contains our Users Description Data
+  userDescInput // contains our User Description's Input Data
 });
 
 export default rootReducer;
