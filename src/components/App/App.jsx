@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import UserInformation from '../UserInformation/UserInformation';
+import AddMeds from '../AddMeds/AddMeds';
 
 import './App.css';
 
@@ -35,6 +36,9 @@ function App() {
     dispatch({ 
       type: 'FETCH_USER' 
     });
+    dispatch({
+      type: 'FETCH_USERMEDS'
+    })
   }, [dispatch]);
 
   return (
@@ -80,6 +84,13 @@ function App() {
             path="/UserInformation"
           >
             <UserInformation />
+          </ProtectedRoute>
+          <ProtectedRoute
+            // Takes the user to a page where they can input their medication data
+            exact
+            path="/AddMedication"
+          >
+            <AddMeds />
           </ProtectedRoute>
 
           <Route

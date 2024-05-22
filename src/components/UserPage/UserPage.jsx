@@ -1,6 +1,6 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -8,17 +8,17 @@ function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const dispatch = useDispatch()
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch({
-      type:'FETCH_USERDESC'
+      type: 'FETCH_USERDESC'
     })
     dispatch({
       type: 'FETCH_USERMED'
     })
-  },[])
+  }, [])
 
   const user = useSelector((store) => store.user);
-  const userDesc= useSelector((store)=> store.userDesc[0])
+  const userDesc = useSelector((store) => store.userDesc[0])
   const userMeds = useSelector((store) => store.userMeds[0])
   return (
     <div className="container">
@@ -28,37 +28,33 @@ function UserPage() {
         <tr>
           <th>
             Medication Name
-            <td>
-              {userMeds?.Medication_Name}
-            </td>
           </th>
           <th>
             Medication Description
-            <td>
-              {userMeds?.Medication_description}
-            </td>
           </th>
           <th>
             Medication Dosage
-            <td>
-              {userMeds?.Dosage}
-            </td>
           </th>
           <th>
             Medication Time
-            <td>
-
-            </td>
           </th>
           <th>
             Remove
-            <td>
-              
-            </td>
           </th>
         </tr>
+        <tr>
+          <td>
+            {userMeds?.Medication_Name}
+          </td>
+          <td>
+            {userMeds?.Medication_description}
+          </td>
+          <td>
+            {userMeds?.Dosage}
+          </td>
+        </tr>
       </table>
-      
+
       <LogOutButton className="btn" />
     </div>
   );

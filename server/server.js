@@ -27,7 +27,7 @@ app.use(passport.session());
 // Routes
 app.use('/api/user', userRouter);
 app.use('/api/userDesc', templateRouter)
-app.use('/api/userMeds',userMeds);
+app.use('/api/userMeds', userMeds);
 
 // Listen Server & Port
 app.listen(PORT, () => {

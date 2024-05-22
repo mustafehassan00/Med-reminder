@@ -8,6 +8,8 @@ const router = express.Router();
 // GET ROUTE FOR MEDICATION DATA FOR THE SPECIFIC USER
 router.get('/', (req, res) => {
     let user = req.user;
+    console.log('GET ROUTE FOR MEDICATION DATA IS WORKING')
+
     const sqlText = `SELECT * FROM "Medication"
                       INNER JOIN "user" on "Medication"."user_id"= "user".id
                     WHERE "user".id= $1;`
@@ -15,7 +17,6 @@ router.get('/', (req, res) => {
       .query(sqlText, [user.id])
       .then((result) => {
         res.send(result.rows)
-        res.sendStatus(201)
       })
       .catch((err) => {
         console.log('ERROR IN GETTING MEDICATION DATA FOR USER', err)
@@ -27,9 +28,9 @@ router.get('/', (req, res) => {
   // POST ROUTE FOR ADDING MEDICATION
   router.post('/', (req, res) => {
     console.log('POST ROUTE FOR ADDING MEDICATION IS WORKING')
-    const medName = req.body.Medication_name
-    const medDesc = req.body.Medicattion_description
-    const dosage = req.body.Dosage
+    const Medication_name = req.body.Medication_name
+    const Medication_description = req.body.Medicattion_description
+    const Dosage = req.body.Dosage
   
   
     const sqlText = `INSERT INTO "Medication"
@@ -37,9 +38,9 @@ router.get('/', (req, res) => {
                      VALUES
                      ($1, $2, $3)`
     const sqlValue = [
-      medName,
-      medDesc,
-      dosage
+      Medication_name,
+      Medication_description,
+      Dosage
     ]
     pool
       .query(sqlText, sqlValue)
@@ -51,12 +52,6 @@ router.get('/', (req, res) => {
         console.log('ERROR IN POST ROUTE ADDING MEDICATION', err)
       })
   })
-
-
-
-
-
-
 
 
 
