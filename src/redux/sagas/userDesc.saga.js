@@ -32,5 +32,4 @@ function* userDescSaga() {
     yield takeLatest('FETCH_USERDESC', fetchUserDesc);
     yield takeLatest('FETCH_USERDESCINPUT', fetchUserDescInput)
 }
-
 export default userDescSaga;
