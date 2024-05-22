@@ -57,7 +57,18 @@ VALUES
 'Conditon is unknown'
 );
 
+-- Selecting the current logged in user's Description Data 
 SELECT * FROM user_description
 INNER JOIN "user" ON user_description."user_id" = "user".id
 WHERE "user".id=2;
+
+-- Selecting the current logged in user's Medication data
+SELECT * FROM "Medication"
+INNER JOIN "user" on "Medication"."user_id"= "user".id
+WHERE "user".id=2;
+
+-- Adding medication for the specific user 
+INSERT INTO "Medication"
+("Medication_name", "Medication_description", "Dosage", "Time")
+VALUE;
 
