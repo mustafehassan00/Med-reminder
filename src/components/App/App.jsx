@@ -37,7 +37,7 @@ function App() {
       type: 'FETCH_USER' 
     });
     dispatch({
-      type: 'FETCH_USERMEDS'
+      type: 'FETCH_MEDS'
     })
   }, [dispatch]);
 

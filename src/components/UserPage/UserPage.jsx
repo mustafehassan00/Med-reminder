@@ -13,13 +13,16 @@ function UserPage() {
       type: 'FETCH_USERDESC'
     })
     dispatch({
-      type: 'FETCH_USERMED'
+      type: 'FETCH_MEDS'
     })
   }, [])
 
   const user = useSelector((store) => store.user);
   const userDesc = useSelector((store) => store.userDesc[0])
-  const userMeds = useSelector((store) => store.userMeds[0])
+  const userMeds = useSelector((store) => store.userMeds)
+
+
+
   return (
     <div className="container">
       <h2>Welcome, {userDesc?.Name}!</h2>
@@ -42,17 +45,21 @@ function UserPage() {
             Remove
           </th>
         </tr>
-        <tr>
-          <td>
-            {userMeds?.Medication_Name}
-          </td>
-          <td>
-            {userMeds?.Medication_description}
-          </td>
-          <td>
-            {userMeds?.Dosage}
-          </td>
-        </tr>
+        {userMeds.map(userMeds => {
+          return (
+              <tr>
+                <td>
+                  {userMeds?.Medication_name}
+                </td>
+                <td>
+                  {userMeds?.Medication_description}
+                </td>
+                <td>
+                  {userMeds?.Dosage}
+                </td>
+              </tr>
+          )
+        })}
       </table>
 
       <LogOutButton className="btn" />

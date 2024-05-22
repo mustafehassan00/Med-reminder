@@ -29,12 +29,12 @@ router.get('/', (req, res) => {
   router.post('/', (req, res) => {
     console.log('POST ROUTE FOR ADDING MEDICATION IS WORKING')
     const Medication_name = req.body.Medication_name
-    const Medication_description = req.body.Medicattion_description
+    const Medication_description = req.body.Medication_description
     const Dosage = req.body.Dosage
   
   
     const sqlText = `INSERT INTO "Medication"
-                      ("Medication_name", "Medication_description", "Dosage", "Time")
+                      ("Medication_name", "Medication_description", "Dosage")
                      VALUES
                      ($1, $2, $3)`
     const sqlValue = [
