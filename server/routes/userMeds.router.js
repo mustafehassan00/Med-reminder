@@ -53,10 +53,10 @@ router.get('/', (req, res) => {
       .query(sqlText, sqlValue)
       .then((res) => {
         console.log('Result For Adding Medication is:', res)
-        res.sendStatus(201)
       })
       .catch((err) => {
         console.log('ERROR IN POST ROUTE ADDING MEDICATION', err)
+        res.sendStatus(500)
       })
   })
 

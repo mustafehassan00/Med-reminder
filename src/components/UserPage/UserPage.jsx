@@ -57,6 +57,9 @@ function UserPage() {
                 <td>
                   {userMeds?.Dosage}
                 </td>
+                <td>
+                {userMeds?.Time}
+                </td>
               </tr>
           )
         })}

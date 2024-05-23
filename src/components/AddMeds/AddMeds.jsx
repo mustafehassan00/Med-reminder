@@ -18,7 +18,8 @@ function AddMeds() {
             payload: {
                 Medication_name: medName,
                 Medication_description: medDescription,
-                Dosage: medDosage
+                Dosage: medDosage,
+                Time: time
             },
         })
         history.push('/user')
@@ -53,6 +54,16 @@ function AddMeds() {
                         name="Dosage"
                         value={medDosage}
                         onChange={(event) => setMedDosage(event.target.value)}
+                    />
+                </label>
+                
+                <label>
+                    Time
+                    <input
+                        type="Time"
+                        name="Time"
+                        value={time}
+                        onChange={(event) => setTime(event.target.value)}
                     />
                 </label>
             </div>
