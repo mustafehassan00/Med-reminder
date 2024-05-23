@@ -10,8 +10,8 @@ function AddMeds() {
     const [medDescription, setMedDescription] = useState('')
     const [medDosage, setMedDosage] = useState('')
 
-    const addMedication = (event) => {
-        event.preventDefault();
+    const addMedication = () => {
+      
 
         dispatch({
             type: 'FETCH_MEDINPUT',
