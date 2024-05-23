@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import Countdown from "react-countdown";
 
 function AddMeds() {
     const dispatch = useDispatch()
@@ -11,10 +10,9 @@ function AddMeds() {
     const [medName, setMedName] = useState('')
     const [medDescription, setMedDescription] = useState('')
     const [medDosage, setMedDosage] = useState('')
+    const [time, setTime] = useState('')
 
     const addMedication = () => {
-      
-
         dispatch({
             type: 'FETCH_MEDINPUT',
             payload: {

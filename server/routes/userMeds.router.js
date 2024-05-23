@@ -34,18 +34,20 @@ router.get('/', (req, res) => {
     const Medication_name = req.body.Medication_name
     const Medication_description = req.body.Medication_description
     const Dosage = req.body.Dosage
+    const Time= req.body.Time
   
   
     const sqlText = `INSERT INTO "Medication"
-                      ("user_id","Medication_name", "Medication_description", "Dosage")
+                      ("user_id","Medication_name", "Medication_description", "Dosage", "Time")
                      VALUES
-                     ($1, $2, $3,$4)
+                     ($1, $2, $3,$4,$5)
                      `
     const sqlValue = [
       userID,
       Medication_name,
       Medication_description,
-      Dosage
+      Dosage,
+      Time
     ]
     pool
       .query(sqlText, sqlValue)
