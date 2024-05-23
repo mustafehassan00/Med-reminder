@@ -28,16 +28,21 @@ router.get('/', (req, res) => {
   // POST ROUTE FOR ADDING MEDICATION
   router.post('/', (req, res) => {
     console.log('POST ROUTE FOR ADDING MEDICATION IS WORKING')
+    let userID = req.body.user_id
+    let user= req.user.id 
+    userID = user 
     const Medication_name = req.body.Medication_name
     const Medication_description = req.body.Medication_description
     const Dosage = req.body.Dosage
   
   
     const sqlText = `INSERT INTO "Medication"
-                      ("Medication_name", "Medication_description", "Dosage")
+                      ("user_id","Medication_name", "Medication_description", "Dosage")
                      VALUES
-                     ($1, $2, $3)`
+                     ($1, $2, $3,$4)
+                     `
     const sqlValue = [
+      userID,
       Medication_name,
       Medication_description,
       Dosage
