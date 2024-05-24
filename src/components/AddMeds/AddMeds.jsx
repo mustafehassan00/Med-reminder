@@ -60,7 +60,7 @@ function AddMeds() {
                 <label>
                     Time
                     <input
-                        type="Date"
+                        type="datetime-local"
                         name="Time"
                         value={time}
                         onChange={(event) => setTime(event.target.value)}
