@@ -30,6 +30,7 @@ function UserPage() {
       <h2>Welcome, {userDesc?.Name}!</h2>
       <p>Your ID is: {user.id}</p>
       <table>
+      <thead>
         <tr>
           <th>
             Medication Name
@@ -47,9 +48,10 @@ function UserPage() {
             Remove
           </th>
         </tr>
+        </thead>
         {userMeds.map(userMeds => {
           return (
-              <tr>
+              <tr key = {userMeds.id}>
                 <td>
                   {userMeds?.Medication_name}
                 </td>
@@ -60,25 +62,21 @@ function UserPage() {
                   {userMeds?.Dosage}
                 </td>
                 <td>
-                  <Countdown
-    date={
-      userMeds?.Time
-        ? new Date(
-            new Date().setHours(
-              Number(userMeds?.Time.split(":")[0]),
-              Number(userMeds?.Time.split(":")[1]),
-              Number(userMeds?.Time.split(":")[2])
-            )
-          ) + 5000
-        : null
-    }
-    renderer={({ hours, minutes, seconds }) => (
-      <span>
-        {hours}:{minutes}:{seconds}
-      </span>
-    )}
-    onComplete={<TimerEnding />}
-  />
+                <Countdown date={
+                  new Date(userMeds.Time).getTime()
+                } 
+                
+                renderer={({ days, hours, minutes, seconds, completed }) => {
+                  if (completed) {
+                    return <TimerEnding />;
+                  } else {
+                    return (
+                      <span>
+                        {days} days {hours} hours {minutes} minutes {seconds} seconds
+                      </span>
+                    );
+                  }
+                }} />
                 </td>
               </tr>
           )

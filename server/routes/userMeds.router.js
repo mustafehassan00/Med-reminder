@@ -59,6 +59,15 @@ router.get('/', (req, res) => {
         res.sendStatus(500)
       })
   })
+  //Updates the Dosage for the Medication
+  router.put('/:id', (req, res) => {
+
+  });
+
+  //Deletes the Medication from the Database
+  router.delete('/:id', (req, res) => {
+
+  })
 
 
 
