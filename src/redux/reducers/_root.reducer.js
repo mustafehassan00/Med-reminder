@@ -5,6 +5,7 @@ import userDesc from './userDesc.reducer';
 import userDescInput from './userDescInput.reducer';
 import userMeds from './userMeds.reducer';
 import userMedInput from './userMedInput.reducer'
+import medToUpdate from './userMedsUpdate.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   userDescInput, // contains our User Description's Input Data
   userMeds, // contains our User's Medication Data
   userMedInput, // contains our User's Medication Input Data
+  medToUpdate, // contains our User's Updated Medication Data
 });
 
 export default rootReducer;

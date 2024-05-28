@@ -23,6 +23,9 @@ function UserPage() {
     dispatch({
       type: 'FETCH_MEDS'
     })
+    dispatch({
+      type: 'FETCH_MED_TO_UPDATE'
+    })
   }, [])
 
 
@@ -31,7 +34,9 @@ function UserPage() {
   const userMeds = useSelector((store) => store.userMeds)
   const TimerEnding = () => <span>💊Time to Take Your Medication !💊</span>
 
-  
+  const updateMeds = () => {
+    console.log('Updating Medication')
+  }
 
   return (
     <div className="container">
@@ -51,6 +56,9 @@ function UserPage() {
           </th>
           <th>
             Medication Time
+          </th>
+          <th>
+            Edit
           </th>
           <th>
             Remove
@@ -85,6 +93,12 @@ function UserPage() {
                     );
                   }
                 }} />
+                </td>
+                <td>
+                  <button>✍🏽 Edit </button>
+                </td>
+                <td>
+                  <button>🚮 Remove </button>
                 </td>
               </tr>
           )
