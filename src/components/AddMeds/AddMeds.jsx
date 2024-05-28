@@ -20,7 +20,7 @@ function AddMeds() {
                 Medication_description: medDescription,
                 Dosage: medDosage,
                 Time: time
-            },
+         },
         })
         history.push('/user')
     }; // end adding medication

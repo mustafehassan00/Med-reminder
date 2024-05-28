@@ -59,7 +59,7 @@ router.get('/', (req, res) => {
         res.sendStatus(500)
       })
   })
-  //Updates the Dosage for the Medication
+  //Updates the Dosage and Time for the Medication
   router.put('/:id', (req, res) => {
 
   });
