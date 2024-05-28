@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import UserInformation from '../UserInformation/UserInformation';
 import AddMeds from '../AddMeds/AddMeds';
+import EditPage from '../EditPage/EditPage';
 
 import './App.css';
 
@@ -71,7 +72,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+          
             exact
             path="/info"
           >
@@ -79,7 +80,7 @@ function App() {
           </ProtectedRoute>
 
           <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
+            
             exact
             path="/UserInformation"
           >
@@ -91,6 +92,13 @@ function App() {
             path="/AddMedication"
           >
             <AddMeds />
+          </ProtectedRoute>
+          <ProtectedRoute
+
+            exact
+            path="/EditMedication"
+          >
+            <EditPage />
           </ProtectedRoute>
 
           <Route

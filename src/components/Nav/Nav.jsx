@@ -31,6 +31,9 @@ function Nav() {
             <Link className="navLink" to="/AddMedication">
               Add Medication
             </Link>
+            <Link className="navLink" to="/EditMedication">
+              Edit Medication
+            </Link>
 
             <Link className="navLink" to="/UserInformation">
               User Information
