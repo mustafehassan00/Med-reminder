@@ -1,5 +1,6 @@
 const express = require('express');
 const pool = require('../modules/pool');
+const e = require('express');
 const router = express.Router();
 
 
@@ -11,8 +12,7 @@ router.get('/', (req, res) => {
   console.log('GET ROUTE FOR MEDICATION DATA IS WORKING 🧽🧽🧽🧽🧽🧽🧽🧽🧽🧽')
 
   const sqlText = `SELECT * FROM "Medication"
-                      INNER JOIN "user" on "Medication"."user_id"= "user".id
-                    WHERE "user".id= $1;`
+                    WHERE user_id= $1;`
   pool
     .query(sqlText, [user.id])
     .then((result) => {
@@ -28,16 +28,17 @@ router.get('/', (req, res) => {
 
 // GET ROUTE FOR USER MEDICATION ID
 router.get('/:id', (req, res) => {
-  let user = req.user;
+  let user = req.user.id;
+  
+  // let medId = req.params.id
   const sqlText = `SELECT * FROM "Medication"
-                    INNER JOIN "user" on "Medication"."user_id"= "user".id
-                   WHERE "user".id=$1;`
-  const sqlValue = user
+                   WHERE user_id=$1;` // AND id=$2
+  const sqlValue = [user]
 
   pool 
     .query (sqlText,sqlValue)
     .then((dbres) => {
-      const Meds = [dbres.rows]
+      const Meds = dbres.rows
       res.send(Meds)
     })
     .catch((err) => {
@@ -84,8 +85,11 @@ router.post('/', (req, res) => {
 // PUT ROUTE for the Dosage and Time for the Medication
 router.put('/:id', (req, res) => {
   console.log('PUT ROUTE is Online !🔮🔮🔮🔮🔮🔮🔮🔮🔮')
-  console.log('req.body is:', req.body)
-  const idToUpdate = req.params.id
+
+  let idToUpdate = req.user.id
+  let user = req.user.id
+
+  idToUpdate = user
   const sqlText = `UPDATE "Medication"
                    SET "Medication_name" = $1,
                       "Medication_description" = $2,
@@ -114,7 +118,21 @@ router.put('/:id', (req, res) => {
 //DELETE ROUTE for the Medication from the Database
 router.delete('/:id', (req, res) => {
   console.log('DELETE ROUTE IS ONLINE 📦📦📦📦📦📦📦📦📦📦')
+  console.log('req.params is:', req.params.id)
+  const idtoDelete = req.params.id
+  const sqlText = `DELETE FROM "Medication"
+                    WHERE id = $1`
+  const sqlvalue =[idtoDelete]
 
+  pool
+    .query (sqlText,sqlvalue)
+    .then(() =>{
+      res.sendStatus(200)
+    })
+    .catch((err) => {
+      console.log('DELETE ROUTE error is:', err)
+      res.sendStatus(500)
+    })
 })
 
 

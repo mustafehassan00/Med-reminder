@@ -27,9 +27,9 @@ function* fetchUserMedInputData(action) {
 function* fetchUpdateUserMeds(action){
     try{
         const medID = action.payload
-        yield axios.get(`/api/userMeds/${medID}`);
+       const response = yield axios.get(`/api/userMeds/${medID}`);
+       const medToUpdate= response.data
 
-        const medToUpdate= response.data
         yield put({
             type: 'SET_MED_TO_UPDATE',
             payload:medToUpdate
@@ -56,10 +56,28 @@ function* UpdateUserMeds(action) {
 
 }
 
+function* deleteUserMeds(action) {
+    try{
+        const deleteMedId = action.payload
+        console.log('Action payload is', action.payload)
+        yield axios ({
+            method:'DELETE',
+            url: `/api/userMeds/${deleteMedId}`
+           
+        })
+        yield put({
+            type:'FETCH_MEDS'
+        })
+    } catch (err) {
+        console.log('Error In Delete Saga', err)
+    }
+}
+
 function* userMedsSaga() {
     yield takeLatest('FETCH_MEDS', fetchUserMedData);
     yield takeLatest('FETCH_MEDINPUT', fetchUserMedInputData);
     yield takeLatest('FETCH_MED_TO_UPDATE', fetchUpdateUserMeds);
-    yield takeLatest('UPDATE_MED', UpdateUserMeds)
+    yield takeLatest('UPDATE_MED', UpdateUserMeds);
+    yield takeLatest('DELETE_MED', deleteUserMeds);
 }
 export default userMedsSaga;

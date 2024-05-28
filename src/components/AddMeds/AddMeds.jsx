@@ -12,7 +12,8 @@ function AddMeds() {
     const [medDosage, setMedDosage] = useState('')
     const [time, setTime] = useState('')
 
-    const addMedication = () => {
+    const addMedication = (event) => {
+        event.preventDefault()
         dispatch({
             type: 'FETCH_MEDINPUT',
             payload: {

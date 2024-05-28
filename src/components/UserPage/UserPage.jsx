@@ -24,7 +24,8 @@ function UserPage() {
       type: 'FETCH_MEDS'
     })
     dispatch({
-      type: 'FETCH_MED_TO_UPDATE'
+      type: 'FETCH_MED_TO_UPDATE',
+      payload: userID
     })
   }, [])
 
@@ -32,12 +33,28 @@ function UserPage() {
   const user = useSelector((store) => store.user);
   const userDesc = useSelector((store) => store.userDesc[0])
   const userMeds = useSelector((store) => store.userMeds)
+  const medToUpdate = useSelector((store) => store.medToUpdate)
+  const deleteMedData= useSelector((store) => store.deleteMeds)
   const TimerEnding = () => <span>💊Time to Take Your Medication !💊</span>
+  const userID= user.id
 
   const updateMeds = () => {
+ 
     console.log('Updating Medication')
-  }
 
+    dispatch({
+      type:'UPDATE_MED',
+    })
+
+
+  }
+  const deleteMeds =(idToDelete)=> {
+    console.log('Deleting Medication')
+    dispatch({
+      type:'DELETE_MED',
+      payload: idToDelete
+    })
+  }
   return (
     <div className="container">
       <h2 onClick={nameToUserInfo}>Welcome, {userDesc?.Name}!</h2>
@@ -95,10 +112,10 @@ function UserPage() {
                 }} />
                 </td>
                 <td>
-                  <button>✍🏽 Edit </button>
+                  <button onClick={updateMeds}>✍🏽 Edit </button>
                 </td>
                 <td>
-                  <button>🚮 Remove </button>
+                  <button onClick={() => deleteMeds(userMeds.id)}>🚮 Remove </button>
                 </td>
               </tr>
           )
