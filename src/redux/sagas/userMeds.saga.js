@@ -25,7 +25,7 @@ function* fetchUserMedInputData(action) {
     }
 }
 function* fetchUpdateUserMeds(action){
-    try{
+   try{
         const medID = action.payload
        const response = yield axios.get(`/api/userMeds/${medID}`);
        const medToUpdate= response.data
@@ -36,7 +36,7 @@ function* fetchUpdateUserMeds(action){
         })
     } catch (error) {
         console.log('Error in fetchUpdateUserMeds:', error)
-    }
+    } 
 }
 
 function* UpdateUserMeds(action) {

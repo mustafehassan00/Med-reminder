@@ -31,7 +31,7 @@ function AddMeds() {
             <h2>Add Medication</h2>
             <div>
                 <label>
-                    Medication Name
+                    Medication Name:
                     <input
                         type="text"
                         name="Medication Name"
@@ -40,7 +40,7 @@ function AddMeds() {
                     />
                 </label>
                 <label>
-                    Medication Description
+                    Medication Description:
                     <input
                         type="text"
                         name="Medication Description"
@@ -49,7 +49,7 @@ function AddMeds() {
                     />
                 </label>
                 <label>
-                    Medication Dosage
+                    Dosage:
                     <input
                         type="text"
                         name="Dosage"
@@ -59,7 +59,7 @@ function AddMeds() {
                 </label>
                 
                 <label>
-                    Time
+                    Time:
                     <input
                         type="datetime-local"
                         name="Time"

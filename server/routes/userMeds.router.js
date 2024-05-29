@@ -95,7 +95,7 @@ router.put('/:id', (req, res) => {
                       "Medication_description" = $2,
                       "Dosage" = $3,
                       "Time" = $4
-                   WHERE "user_id" = $5;`
+                   WHERE "id" = $5;`
 
   const Medication_name = req.body.Medication_name
   const Medication_description = req.body.Medication_description
