@@ -2,27 +2,32 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import React, { useState } from "react"
+import { useParams } from "react-router-dom/cjs/react-router-dom.min"
+import { useEffect } from "react"
 function EditPage() {
     const dispatch = useDispatch()
     const history = useHistory()
+    const params= useParams()
+    console.log('Params is:', params)
+
+    const idToEdit = params.id
+    console.log('IdtoEdit:', idToEdit)
 
     const [medName, setMedName] = useState('')
     const [medDescription, setMedDescription] = useState('')
     const [medDosage, setMedDosage] = useState('')
     const [time, setTime] = useState('')
 
-   
-    const editMed = (event) => {
-        event.preventDefault() 
-        dispatch({
-            type:'SET_MED_TO_UPDATE',
-            payload:{
-                Medication_name:medName,
-                Medication_description: medDescription,
-                Dosage:medDosage,
-                Time: time
-            },
-        })
+    const medToedit = useSelector(store => store.medToUpdate)
+
+
+   useEffect(() => {
+    dispatch({
+        type:'FETCH_MED_TO_UPDATE',
+        payload:idToEdit,
+    })
+   },[])
+    const editMed = () => {
         history.push('/user')
     }// end updating medication
 
@@ -35,7 +40,7 @@ function EditPage() {
                     <input 
                     type="text"
                     name="Medication Name"
-                    value={medName}
+                    value={medToedit.Medication_name}
                     onChange={(event) => setMedName(event.target.value)}/>
                 </label>
 
@@ -44,7 +49,7 @@ function EditPage() {
                     <input 
                       type="text"
                       name="Medication Description"
-                      value={medDescription}
+                      value={medToedit.Medication_description}
                       onChange={(event) => setMedDescription(event.target.value)}/>
                 </label>
                 <label>
@@ -52,7 +57,7 @@ function EditPage() {
                     <input 
                     type="text"
                     name="Dosage"
-                    value={medDosage}
+                    value={medToedit.Dosage}
                     onChange={(event) => setMedDosage(event.target.value)}/>
                 </label>
 
@@ -61,7 +66,7 @@ function EditPage() {
                     <input 
                     type="datetime-local"
                     name="Time"
-                    value={time}
+                    value={medToedit.Time}
                     onChange={(event) => setTime(event.target.value)}/>
                 </label>
             </div>

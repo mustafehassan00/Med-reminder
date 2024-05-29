@@ -96,7 +96,7 @@ function App() {
           <ProtectedRoute
 
             exact
-            path="/EditMedication"
+            path="/EditMedication/:id"
           >
             <EditPage />
           </ProtectedRoute>

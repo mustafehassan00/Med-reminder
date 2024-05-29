@@ -38,12 +38,14 @@ function UserPage() {
   const userID= user.id
 
   const updateMeds = (IdToUpdate) => {
+    
     console.log('Updating Medication')
     dispatch({
       type:'UPDATE_MED',
       payload: IdToUpdate
     })
-    history.push('/EditMedication')
+    history.push(`/EditMedication/${IdToUpdate}`)
+    console.log('user med id is:', IdToUpdate)
   }
   const deleteMeds =(idToDelete)=> {
     console.log('Deleting Medication')

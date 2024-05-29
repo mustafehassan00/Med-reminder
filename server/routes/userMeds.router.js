@@ -28,17 +28,17 @@ router.get('/', (req, res) => {
 
 // GET ROUTE FOR USER MEDICATION ID
 router.get('/:id', (req, res) => {
-  let user = req.user.id;
+  let user = req.params.id;
   
   // let medId = req.params.id
   const sqlText = `SELECT * FROM "Medication"
-                   WHERE user_id=$1;` // AND id=$2
+                   WHERE "id"=$1;` // AND id=$2
   const sqlValue = [user]
 
   pool 
     .query (sqlText,sqlValue)
     .then((dbres) => {
-      const Meds = dbres.rows
+      const Meds = dbres.rows[0]
       res.send(Meds)
     })
     .catch((err) => {
@@ -86,10 +86,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   console.log('PUT ROUTE is Online !🔮🔮🔮🔮🔮🔮🔮🔮🔮')
 
-  let idToUpdate = req.user.id
-  let user = req.user.id
-
-  idToUpdate = user
+  const idToUpdate = req.params.id
   const sqlText = `UPDATE "Medication"
                    SET "Medication_name" = $1,
                       "Medication_description" = $2,

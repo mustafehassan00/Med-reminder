@@ -28,10 +28,12 @@ function* fetchUpdateUserMeds(action){
    try{
         const medID = action.payload
        const response = yield axios.get(`/api/userMeds/${medID}`);
-       const medToUpdate= response.data
+
+        const medToUpdate= response.data
+        console.log('Medication to update id is:' ,medToUpdate)
 
         yield put({
-            type: 'SET_MED_TO_UPDATE',
+            type:'SET_MED_TO_UPDATE',
             payload:medToUpdate
         })
     } catch (error) {
