@@ -37,11 +37,12 @@ function UserPage() {
   const TimerEnding = () => <span>💊Time to Take Your Medication !💊</span>
   const userID= user.id
 
-  const updateMeds = (IdToUpdate) => {
+  const updateMeds = (IdToUpdate, event) => {
+    // event.preventDefault()
     
     console.log('Updating Medication')
     dispatch({
-      type:'UPDATE_MED',
+      type:'FETCH_MED_TO_UPDATE',
       payload: IdToUpdate
     })
     history.push(`/EditMedication/${IdToUpdate}`)

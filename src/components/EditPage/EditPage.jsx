@@ -13,14 +13,14 @@ function EditPage() {
     const idToEdit = params.id
     console.log('IdtoEdit:', idToEdit)
 
-    const [medName, setMedName] = useState('')
-    const [medDescription, setMedDescription] = useState('')
-    const [medDosage, setMedDosage] = useState('')
-    const [time, setTime] = useState('')
+    // const [medName, setMedName] = useState('')
+    // const [medDescription, setMedDescription] = useState('')
+    // const [medDosage, setMedDosage] = useState('')
+    // const [time, setTime] = useState('')
 
     const medToedit = useSelector(store => store.medToUpdate)
 
-
+    console.log('Med to Edit is:',medToedit)
    useEffect(() => {
     dispatch({
         type:'FETCH_MED_TO_UPDATE',
@@ -41,7 +41,8 @@ function EditPage() {
                     type="text"
                     name="Medication Name"
                     value={medToedit.Medication_name}
-                    onChange={(event) => setMedName(event.target.value)}/>
+                    // onChange={(event) => setMedName(event.target.value)} 
+                    />
                 </label>
 
                 <label>
@@ -50,7 +51,8 @@ function EditPage() {
                       type="text"
                       name="Medication Description"
                       value={medToedit.Medication_description}
-                      onChange={(event) => setMedDescription(event.target.value)}/>
+                    //   onChange={(event) => setMedDescription(event.target.value)}
+                      />
                 </label>
                 <label>
                     Dosage:
@@ -58,7 +60,8 @@ function EditPage() {
                     type="text"
                     name="Dosage"
                     value={medToedit.Dosage}
-                    onChange={(event) => setMedDosage(event.target.value)}/>
+                    // onChange={(event) => setMedDosage(event.target.value)}
+                    />
                 </label>
 
                 <label>
@@ -67,7 +70,8 @@ function EditPage() {
                     type="datetime-local"
                     name="Time"
                     value={medToedit.Time}
-                    onChange={(event) => setTime(event.target.value)}/>
+                    // onChange={(event) => setTime(event.target.value)}
+                    />
                 </label>
             </div>
             <div>
