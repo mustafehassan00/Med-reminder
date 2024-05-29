@@ -34,11 +34,15 @@ function UserPage() {
   const userDesc = useSelector((store) => store.userDesc[0])
   const userMeds = useSelector((store) => store.userMeds)
   const medToUpdate = useSelector((store) => store.medToUpdate)
-  const deleteMedData= useSelector((store) => store.deleteMeds)
   const TimerEnding = () => <span>💊Time to Take Your Medication !💊</span>
   const userID= user.id
 
-  const updateMeds = () => {
+  const updateMeds = (IdToUpdate) => {
+    console.log('Updating Medication')
+    dispatch({
+      type:'UPDATE_MED',
+      payload: IdToUpdate
+    })
     history.push('/EditMedication')
   }
   const deleteMeds =(idToDelete)=> {
@@ -55,16 +59,16 @@ function UserPage() {
       <table>
       <thead>
         <tr>
-          <th>
+          <th class = "flex-container">
             Medication Name
           </th>
-          <th>
+          <th class = "flex-container">
             Medication Description
           </th>
-          <th>
+          <th class = "flex-container">
             Medication Dosage
           </th>
-          <th>
+          <th class = "flex-container">
             Medication Time
           </th>
           <th>
@@ -78,16 +82,16 @@ function UserPage() {
         {userMeds.map(userMeds => {
           return (
               <tr key = {userMeds.id}>
-                <td>
+                <td class = "box">
                   {userMeds?.Medication_name}
                 </td>
-                <td>
+                <td class = "box">
                   {userMeds?.Medication_description}
                 </td>
-                <td>
+                <td class = "box">
                   {userMeds?.Dosage}
                 </td>
-                <td>
+                <td class = "box">
                 <Countdown date={
                   new Date(userMeds.Time).getTime()
                 } 
@@ -105,10 +109,10 @@ function UserPage() {
                 }} />
                 </td>
                 <td>
-                  <button onClick={updateMeds}>✍🏽 Edit </button>
+                  <button onClick={() => updateMeds(userMeds.id)}>✍🏽 Edit </button>
                 </td>
                 <td>
-                  <button onClick={() => deleteMeds(userMeds.id)}>🚮 Remove </button>
+                  <button onClick={() => deleteMeds(userMeds.id)} >🚮 Remove </button>
                 </td>
               </tr>
           )

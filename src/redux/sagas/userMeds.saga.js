@@ -41,11 +41,11 @@ function* fetchUpdateUserMeds(action){
 
 function* UpdateUserMeds(action) {
     try{
-        const editedMed = action.payload
+        const editedMedId = action.payload
+        console.log('Edited Medication Id is:', editedMedId)
         yield axios ({
             method: 'PUT',
-            url: `/api/userMeds/${editedMed.id}`,
-            data: editedMed
+            url: `/api/userMeds/${editedMedId}`,
         })
         yield put ({
             type: 'FETCH_MEDS'
