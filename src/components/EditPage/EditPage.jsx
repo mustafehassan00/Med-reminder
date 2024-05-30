@@ -7,27 +7,61 @@ import { useEffect } from "react"
 function EditPage() {
     const dispatch = useDispatch()
     const history = useHistory()
-    const params= useParams()
-    console.log('Params is:', params)
+    const params = useParams()
+    // console.log('Params is:', params)
 
     const idToEdit = params.id
-    console.log('IdtoEdit:', idToEdit)
-
-    // const [medName, setMedName] = useState('')
-    // const [medDescription, setMedDescription] = useState('')
-    // const [medDosage, setMedDosage] = useState('')
-    // const [time, setTime] = useState('')
+    // console.log('IdtoEdit:', idToEdit)
 
     const medToedit = useSelector(store => store.medToUpdate)
 
-    console.log('Med to Edit is:',medToedit)
-   useEffect(() => {
-    dispatch({
-        type:'FETCH_MED_TO_UPDATE',
-        payload:idToEdit,
-    })
-   },[])
+    const handleMedNameChange = (event) => {
+        event.target.value
+        dispatch({
+            type:'EDIT_MEDNAME_INPUT',
+            payload: event.target.value
+        })
+
+    }
+    const handleMedDescriptionChange = (event) => {
+        event.target.value
+        dispatch({
+            type:'EDIT_MEDDESC_INPUT',
+            payload: event.target.value
+        })
+
+
+    }
+    const handleMedDosageChange = (event) => {
+        event.target.value
+        dispatch({
+            type:'EDIT_MEDDOSAGE_INPUT',
+            payload: event.target.value
+        })
+
+    }
+    const handleMedTimeChange = (event) => {
+        event.target.value
+        dispatch({
+            type:'EDIT_MEDTIME_INPUT',
+            payload: event.target.value
+        })
+
+    }
+   
+    // console.log('Med to Edit is:', medToedit)
+    useEffect(() => {
+        dispatch({
+            payload: idToEdit,
+        })
+    }, [])
     const editMed = () => {
+       
+        dispatch({
+            type: 'UPDATE_MED',
+            payload: medToedit
+        })
+        
         history.push('/user')
     }// end updating medication
 
@@ -37,41 +71,53 @@ function EditPage() {
             <div>
                 <label>
                     Medication Name:
-                    <input 
-                    type="text"
-                    name="Medication Name"
-                    value={medToedit.Medication_name}
-                    // onChange={(event) => setMedName(event.target.value)} 
-                    />
+                    {
+                        medToedit.Medication_name &&
+                        <input
+                            type="text"
+                            name="Medication Name"
+                            value={medToedit.Medication_name}
+                            onChange={handleMedNameChange}
+                        />
+                    }
                 </label>
 
                 <label>
                     Medication Description:
-                    <input 
-                      type="text"
-                      name="Medication Description"
-                      value={medToedit.Medication_description}
-                    //   onChange={(event) => setMedDescription(event.target.value)}
-                      />
+                    {
+                        medToedit.Medication_description &&
+                        <input
+                            type="text"
+                            name="Medication Description"
+                            value={medToedit.Medication_description}
+                            onChange={handleMedDescriptionChange}
+                        />
+                    }
                 </label>
                 <label>
                     Dosage:
-                    <input 
-                    type="text"
-                    name="Dosage"
-                    value={medToedit.Dosage}
-                    // onChange={(event) => setMedDosage(event.target.value)}
-                    />
+                    {
+                        medToedit.Dosage &&
+                        <input
+                            type="text"
+                            name="Dosage"
+                            value={medToedit.Dosage}
+                            onChange={handleMedDosageChange}
+                        />
+                    }
                 </label>
 
                 <label>
                     Time:
-                    <input 
-                    type="datetime-local"
-                    name="Time"
-                    value={medToedit.Time}
-                    // onChange={(event) => setTime(event.target.value)}
-                    />
+                    {
+                        medToedit.Time &&
+                        <input
+                            type="text"
+                            name="Time"
+                            value={medToedit.Time}
+                            onChange={handleMedTimeChange}
+                        />
+                    }
                 </label>
             </div>
             <div>
