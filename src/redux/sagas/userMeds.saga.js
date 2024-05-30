@@ -47,7 +47,8 @@ function* UpdateUserMeds(action) {
         console.log('Edited Medication Id is:', editedMedId)
         yield axios ({
             method: 'PUT',
-            url: `/api/userMeds/${editedMedId}`,
+            url: `/api/userMeds/${editedMedId.id}`,
+            data:editedMedId
         })
         yield put ({
             type: 'FETCH_MEDS'

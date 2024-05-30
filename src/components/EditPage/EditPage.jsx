@@ -52,6 +52,7 @@ function EditPage() {
     // console.log('Med to Edit is:', medToedit)
     useEffect(() => {
         dispatch({
+            type:'FETCH_MED_TO_UPDATE',
             payload: idToEdit,
         })
     }, [])
