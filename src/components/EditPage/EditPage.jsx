@@ -113,7 +113,7 @@ function EditPage() {
                     {
                         medToedit.Time &&
                         <input
-                            type="text"
+                            type="datetime-local"
                             name="Time"
                             value={medToedit.Time}
                             onChange={handleMedTimeChange}
