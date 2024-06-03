@@ -22,7 +22,7 @@ function LandingPage() {
         
         <h3>As we progress in our lives we tend to end up forgetting certain things that are important to us like our health. For 
           our health some of us do require medication to keep us running happy and healthy for either our mental or physical state. As a result we tend to forget when to take said medication as sometimes we are just too busy with either school, kids, work etc, with my Medication Reminder web  
-          app, designed to simplify your daily routine and to help you to maintain your medication intake.</h3>
+          app, designed to simplify your daily routine and to help you to maintain your daily medication intake with a reminder.</h3>
       
           <h2>
             To get Started :
